@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React, { useEffect } from 'react'
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 export default function App() {
-  console.info('Ini coba ambil data');
+  const[data, setData] = useState();
 
   const getData = async () => {
     try {
@@ -15,7 +15,7 @@ export default function App() {
         }
       })
 
-      console.info('Get Data New : ', res)
+      setData(res.data.articles)
     } catch (error) {
       console.error(error.message)
     }
@@ -26,9 +26,18 @@ export default function App() {
   }, [])
 
   return (
-    <View>
-      <Text>App</Text>
-    </View>
+    <>
+      {/* Memunculkan data lewat log {console.info('Get Data JSX', data)} */}
+      <SafeAreaView>
+        <ScrollView>
+          {data && data.map((item, i) => {
+            return <>
+              <Text style={{ color: '#000000' }}>{item.title}</Text>
+            </>
+          })}
+        </ScrollView>
+      </SafeAreaView>
+    </>
   )
 }
 
