@@ -54,3 +54,7 @@ const styles = StyleSheet.create({})
 running kemudian coba debug aplikasi, akses log pada `React Native Debugger` inspect element kemudian arahkan ke bagian `console`
 
 <img width="1680" alt="Screen Shot 2023-03-29 at 12 46 10" src="https://user-images.githubusercontent.com/98740335/228437971-8f232143-605f-4b29-93c5-c95be7ee8be9.png">
+
+Preferensi Library yang Diinstallkan 
+
+- [x] https://www.npmjs.com/package/axios
