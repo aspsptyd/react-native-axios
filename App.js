@@ -15,7 +15,7 @@ export default function App() {
         }
       })
 
-      console.info(res)
+      console.info('Get Data New : ', res)
     } catch (error) {
       console.error(error.message)
     }
