@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
 export default function DetailNewsScreen({ route, navigation }) {
@@ -6,7 +6,11 @@ export default function DetailNewsScreen({ route, navigation }) {
         <>
             {console.info(route.params.data)}
             <View>
-                <Text>DetailNewsScreen</Text>
+                <Image style={{ width: 120, height: 120 }} source={{ uri: route.params.data.urlToImage }} />
+                <Text>{route.params.data.title}</Text>
+                <Text>{route.params.data.author}</Text>
+                <Text>{route.params.data.description}</Text>
+                <Text>{route.params.data.publishedAt}</Text>
             </View>
         </>
     )
