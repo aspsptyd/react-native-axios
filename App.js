@@ -1,4 +1,4 @@
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Image, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
@@ -9,8 +9,8 @@ export default function App() {
     try {
       const res = await axios.get('https://newsapi.org/v2/top-headlines', {
         params: {
-          country: 'id',
-          category: 'technology',
+          country: 'us',
+          category: 'business',
           apiKey: '87d43d69278f492783fddbd07988ad8b'
         }
       })
@@ -32,6 +32,7 @@ export default function App() {
         <ScrollView>
           {data && data.map((item, i) => {
             return <>
+              <Image style={{ width: 50, height: 50 }} source={{ uri:item.urlToImage }} />
               <Text style={{ color: '#000000' }}>{item.title}</Text>
             </>
           })}
